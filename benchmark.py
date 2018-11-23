@@ -7,6 +7,14 @@ import tensorflow
 import json
 from pathlib import Path
 
+# Try to run TensorFlow - if this fail, we gather negative observation for thoth - does not run.
+
+hello = tensorflow.constant('Hello, TensorFlow!')
+sess = tensorflow.Session()
+print(sess.run(hello), file=sys.stderr)
+
+# We passed here, we know the given software stack runs, mock performance tests for now.
+
 path = os.path.dirname(os.path.dirname(tensorflow.__file__))
 build_info = os.path.join(path, f'tensorflow-{tensorflow.__version__}.dist-info', 'build_info.yaml')
 
